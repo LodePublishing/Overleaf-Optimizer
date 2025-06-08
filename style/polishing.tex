@@ -1,0 +1,37 @@
+% Polishing settings to optimize the print version
+% See README.md for documentation
+
+\ifmydraft
+    \PassOptionsToPackage{draft,protrusion=false,expansion=false}{microtype}
+  
+  % -- Code and graphics --
+  \PassOptionsToPackage{draft}{minted}
+\else
+
+    % expansion only works with lualatex/pdfLaTeX, tracking only with pdfLaTeX
+    \ifx\XeTeXversion\undefined
+      \ifx\directlua\undefined
+            \PassOptionsToPackage{expansion=true,tracking=true}{microtype}
+       \else
+            \PassOptionsToPackage{expansion=true}{microtype}
+       \fi
+    \fi
+    \PassOptionsToPackage{protrusion=true}{microtype}
+
+  \PassOptionsToPackage{backend=biber}{biblatex}
+\fi
+
+
+
+\ifmydraft 
+  \sloppy  % Prioritize fewer hyphenations
+  \widowpenalty=150  % Mild prevention
+  \clubpenalty=150   % Mild prevention
+\else
+  % === FINAL POLISHING SETTINGS ===
+  \fussy  % Prioritize better spacing
+  \widowpenalty=10000  % Strongly prevent widows
+  \clubpenalty=10000   % Strongly prevent orphans
+  \brokenpenalty=10000 % Prevent breaks after the first paragraph line
+  \interfootnotelinepenalty=10000 % Prevent split footnotes
+\fi

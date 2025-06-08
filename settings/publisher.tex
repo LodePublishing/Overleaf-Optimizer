@@ -1,0 +1,20 @@
+% Publisher and author information
+% See README.md for documentation
+
+% use libertinus-otf for xelatex/lualatex
+\ifx\XeTeXversion\undefined
+  \ifx\directlua\undefined
+    % pdfLaTeX - use fontenc and traditional font packages
+    \newcommand{\myfontfamily}{libertinus}
+
+  \else
+    % LuaLaTeX - load fontspec for loading TTF fonts
+    \newcommand{\myfontfamily}{libertinus-otf}
+  \fi
+\else
+  % XeLaTeX - load fontspec for loading TTF fonts
+    \newcommand{\myfontfamily}{libertinus-otf}
+\fi
+
+\newcommand{\myfontfamilycopyright}{Libertinus  © 2003-2022 SIL Open Font License, Version 1.1.\\
+\url{http://www.sil.org/}}

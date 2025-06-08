@@ -1,0 +1,40 @@
+% Typography and font configuration
+% See README.md for documentation
+
+\usepackage{xurl}
+\usepackage{microtype}
+   
+\ifx\XeTeXversion\undefined
+  \ifx\directlua\undefined
+    % pdfLaTeX - use fontenc and traditional font packages
+    \usepackage[T1]{fontenc}
+    \newcommand{\fontspec}[1]{}
+  \else
+    % LuaLaTeX - load fontspec for loading TTF fonts
+    \usepackage{fontspec}
+  \fi
+\else
+  % XeLaTeX - load fontspec for loading TTF fonts
+  \usepackage{fontspec}
+\fi
+
+
+
+
+
+% Experimental LuaLaTeX packages that significantly increase compile time
+\ifmydraft
+\else
+    \ifx\directlua\undefined
+    % Not LuaLaTeX, do nothing
+    \else
+
+% commented out by default, will increase compile time significantly
+
+        % LuaLaTeX - load typography enhancement packages
+%           \usepackage{lua-widow-control}
+%           \usepackage[\booklanguage]{selnolig}
+%           \usepackage{lua-typo}
+%           \usepackage{unicode-math}
+    \fi
+\fi

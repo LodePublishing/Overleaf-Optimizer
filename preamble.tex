@@ -1,0 +1,12 @@
+% Structure of the preamble
+% See README.md for documentation
+
+% Enabling full OpenType support with PDF 2.0 version
+\usepackage[pdfversion=2.0]{hyperref}
+
+% Detect draft mode
+\usepackage{graphicx}
+\newif\ifmydraft
+\makeatletter
+\ifGin@draft \mydrafttrue\else\fi
+\makeatother
