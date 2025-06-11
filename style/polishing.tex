@@ -8,13 +8,9 @@
   \PassOptionsToPackage{draft}{minted}
 \else
 
-    % expansion only works with lualatex/pdfLaTeX, tracking only with pdfLaTeX
+    % expansion and tracking only work with lualatex/pdfLaTeX
     \ifx\XeTeXversion\undefined
-      \ifx\directlua\undefined
-            \PassOptionsToPackage{expansion=true,tracking=true}{microtype}
-       \else
-            \PassOptionsToPackage{expansion=true}{microtype}
-       \fi
+        \PassOptionsToPackage{expansion=true,tracking=true}{microtype}
     \fi
     \PassOptionsToPackage{protrusion=true}{microtype}
 
